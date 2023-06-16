@@ -10,28 +10,31 @@
 </head>
 
 <body>
-    <div class="container justify-content-center col-lg-6" >
+    <div class="container justify-content-center col-lg-6">
         <form class="row  g-3 m-5" method="post" action="/predict">
             <h1>Employee Stress Prediction</h1>
+            <h1>{% if result[0]==1 %} Under Stress {% elif result[0]==0 %} Not Under Stress {% endif %}</h1>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Age(in years)</label>
                 <input type="number" class="form-control" id="inputEmail4" name="Age" required autofocus>
             </div>
-             <div class="col-md-6">
+            <div class="col-md-6">
                 <label for="input4" class="form-label">Work Average Daily Hours</label>
-                <input type="number" class="form-control" id="input4" name="AvgDailyHours" required>
+                <input type="text" class="form-control" id="input4" name="AvgDailyHours" required>
             </div>
             <div class="form-floating col-md-12">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="Department" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="Department" required>
                     <option value="0">Sales</option>
                     <option value="2">Human Resources</option>
                     <option value="1">Research & Development</option>
                 </select>
                 <label for="floatingSelect">Department</label>
             </div>
-            
+
             <div class="form-floating col-md-12">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="Education" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="Education" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -40,9 +43,10 @@
                 </select>
                 <label for="floatingSelect">Education</label>
             </div>
-            
+
             <div class="form-floating col-md-12">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="EducationField" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="EducationField" required>
                     <option value="2">Marketing</option>
                     <option value="0">Human Resources</option>
                     <option value="3">Medical</option>
@@ -52,33 +56,37 @@
                 </select>
                 <label for="floatingSelect">Education Field</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="Gender" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="Gender"
+                    required>
                     <option value="0">Female</option>
                     <option value="1">Male</option>
                 </select>
                 <label for="floatingSelect">Gender</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="HasFlexibleTimings" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="HasFlexibleTimings" required>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
                 <label for="floatingSelect">Has Flexible Timings ?</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="IsIndividualContributor" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="IsIndividualContributor" required>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
                 <label for="floatingSelect">Is individual Contributor?</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="JobInvolvement" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="JobInvolvement" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -87,7 +95,8 @@
                 <label for="floatingSelect">Job Involvement</label>
             </div>
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="JobRole" required> 
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="JobRole" required>
                     <option value="7">Sales Executive</option>
                     <option value="2">Laboratory Technician</option>
                     <option value="3">Manager</option>
@@ -96,12 +105,13 @@
                     <option value="1">Human Resources</option>
                     <option value="6">Research Scientist </option>
                     <option value="8">Sales Representative</option>
-                    <option value="0">Healthcare Representative</option> 
+                    <option value="0">Healthcare Representative</option>
                 </select>
                 <label for="floatingSelect">Job Role</label>
             </div>
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="JobSatisfaction" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="JobSatisfaction" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -109,27 +119,26 @@
                 </select>
                 <label for="floatingSelect">Job Satisfaction</label>
             </div>
-            
-            <div class="col-6">
+
+            <div class="col-12">
                 <label for="input4" class="form-label">Leaves Taken</label>
                 <input type="number" class="form-control" id="input4" name="LeavesTaken" required>
             </div>
-            <div class="col-6">
-                <label for="inputAddress" class="form-label">Percent Salary Hike </label>
-                <input type="number" class="form-control" id="inputAddress" name="PercentSalaryHike" required>
-            </div>
-            
+
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="MaritalStatus" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="MaritalStatus" required>
                     <option value="1">Married</option>
                     <option value="2">Single</option>
                     <option value="0">Divorced</option>
                 </select>
                 <label for="floatingSelect">Marital Status</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  name="MicromanagedAtWork" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="MicromanagedAtWork" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -138,19 +147,23 @@
                 </select>
                 <label for="floatingSelect">Micro Managed at work (rate out of 5) </label>
             </div>
-            
+
             <div class="col-6">
                 <label for="inputAddress" class="form-label">Monthly Income</label>
                 <input type="number" class="form-control" id="inputAddress" name="MonthlyIncome" required>
             </div>
-            
+
             <div class="col-6">
-                <label for="inputAddress" class="form-label">Number of companies worked  in </label>
-                <input type="number" class="form-control" id="inputAddress" name="NumCompaniesWorked" required> 
+                <label for="inputAddress" class="form-label">Number of companies worked in </label>
+                <input type="number" class="form-control" id="inputAddress" name="NumCompaniesWorked" required>
             </div>
-            
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Percent Salary Hike </label>
+                <input type="number" class="form-control" id="inputAddress" name="PercentSalaryHike" required>
+            </div>
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="PerformanceRating" required> 
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="PerformanceRating" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -158,9 +171,10 @@
                 </select>
                 <label for="floatingSelect">Performance Rating</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="RelationshipSatisfaction" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="RelationshipSatisfaction" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -169,7 +183,8 @@
                 <label for="floatingSelect">Relationship Satisfaction</label>
             </div>
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="RemoteWorkSatistfaction"  required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="RemoteWorkSatistfaction" required>
                     <option value="3">Very High</option>
                     <option value="0">High</option>
                     <option value="2">Medium</option>
@@ -178,9 +193,10 @@
                 </select>
                 <label for="floatingSelect">Remote Work Satisfaction</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="SelfMotivationLevel" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="SelfMotivationLevel" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -188,14 +204,19 @@
                 </select>
                 <label for="floatingSelect">Self Motivation Level</label>
             </div>
-            
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Total Working years</label>
+                <input type="number" class="form-control" id="inputAddress" name="TotalWorkingYears" required>
+            </div>
             <div class="col-md-12">
-                <label for="inputCity" class="form-label"> Number of training sessions the employee has undergone</label>
+                <label for="inputCity" class="form-label"> Number of training sessions the employee has
+                    undergone</label>
                 <input type="number" class="form-control" id="inputCity" name="TrainingTimesLastYear" required>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="WorkLifeBalance" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="WorkLifeBalance" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -203,37 +224,36 @@
                 </select>
                 <label for="floatingSelect">Work Life Balence</label>
             </div>
-            
+
             <div class="form-floating col-md-6">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="WorkLoadLevel" required>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    name="WorkLoadLevel" required>
                     <option value="0">High</option>
                     <option value="2">Medium</option>
                     <option value="1">Low</option>
                 </select>
                 <label for="floatingSelect">Work Load Level</label>
             </div>
-            
-            <div class="col-6">
-                <label for="inputAddress" class="form-label">Total Working years</label>
-                <input type="number" class="form-control" id="inputAddress" name="TotalWorkingYears" required>
-            </div>
-            
+
+
+
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">Years at Present Company</label>
                 <input type="number" class="form-control" id="yearAtCompany" name="YearsAtCompany" required>
             </div>
-            
+
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">Years since last Promotion</label>
-                <input type="number" class="form-control" id="YearsSincePromotion" name="YearsSinceLastPromotion" required>
+                <input type="number" class="form-control" id="YearsSincePromotion" name="YearsSinceLastPromotion"
+                    required>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label for="inputCity" class="form-label">Years With Current Manager</label>
-                <input type="number" class="form-control" id="YearsSincePromotion"  name="YearsWithCurrManager" required> 
+                <input type="number" class="form-control" id="YearsSincePromotion" name="YearsWithCurrManager" required>
             </div>
             <div class="text-center"><br>
                 <button class="btn btn-primary btn-lg" type="submit">Predict</button>
-            </div> 
+            </div>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -242,3 +262,34 @@
 </body>
 
 </html>
+
+
+<!-- 
+{'Age': '1',
+'AvgDailyHours': '1',
+'Department': '0',
+'Education': '1',
+'EducationField': '2',
+'Gender': '0',
+'HasFlexibleTimings': '1',
+'IsIndividualContributor': '1',
+'JobInvolvement': '1',
+'JobRole': '7',
+'JobSatisfaction': '1',
+'LeavesTaken': '1',
+'MaritalStatus': '1',
+'MicromanagedAtWork': '1',
+'MonthlyIncome': '1',
+'NumCompaniesWorked': '1',
+'PercentSalaryHike': '1',
+'PerformanceRating': '1',
+'RelationshipSatisfaction': '1',
+'RemoteWorkSatistfaction': '3',
+'SelfMotivationLevel': '1',
+'TotalWorkingYears': '1',
+'TrainingTimesLastYear': '1',
+'WorkLifeBalance': '1',
+'WorkLoadLevel': '0',
+'YearsAtCompany': '1',
+'YearsSinceLastPromotion': '1',
+'YearsWithCurrManager': '1'} -->
