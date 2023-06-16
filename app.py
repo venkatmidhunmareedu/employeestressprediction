@@ -1,6 +1,6 @@
 from flask import Flask , render_template , redirect , url_for , request
 app  = Flask(__name__)
-
+from predict import mul
 
 @app.route("/",methods=['GET'])
 def home():
@@ -8,9 +8,10 @@ def home():
 
 @app.route("/predict" , methods=['POST'])
 def predict():
-    age = request.form.get('age')
-    avghrs = request.form.get('avghours')
-    return render_template('home.html', age=age,avghrs=avghrs)
+    age = int(request.form.get('age'))
+    avghrs = int(request.form.get('avghours'))
+    result = mul(age , avghrs)
+    return render_template('home.html', age=age,avghrs=avghrs , result= result)
 
 if __name__ == '__main__':
     app.run(debug=True)
