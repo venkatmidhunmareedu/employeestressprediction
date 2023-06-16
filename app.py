@@ -1,6 +1,6 @@
 from flask import Flask , render_template , redirect , url_for , request
 app  = Flask(__name__)
-from predict import mul
+from model import mul
 
 @app.route("/",methods=['GET'])
 def home():
