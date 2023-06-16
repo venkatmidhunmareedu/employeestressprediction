@@ -1,14 +1,16 @@
-from flask import Flask , render_template , redirect , url_for
+from flask import Flask , render_template , redirect , url_for , request
 app  = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/",methods=['GET'])
 def home():
     return render_template('home.html')
 
 @app.route("/predict" , methods=['POST'])
 def predict():
-    return redirect('/')
+    age = request.form.get('age')
+    avghrs = request.form.get('avghours')
+    return render_template('home.html', age=age,avghrs=avghrs)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -11,16 +11,17 @@
 
 <body>
     <div class="container justify-content-center col-lg-6" >
-        <form class="row  g-3 m-5" method="" action="/predict">
+        <form class="row  g-3 m-5" method="post" action="/predict">
             <h1>Employee Stress Prediction</h1>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Age(in years)</label>
                 <input type="number" class="form-control" id="inputEmail4" name="age" required autofocus>
             </div>
-            <!-- <div class="col-md-6">
+             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Work Average Daily Hours</label>
                 <input type="number" class="form-control" id="inputPassword4" name="avghours" required>
             </div>
+            <!--
             <div class="form-floating col-md-12">
                 <select class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
                     <option value="1">Sales</option>
