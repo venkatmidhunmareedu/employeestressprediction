@@ -8,10 +8,9 @@ def home():
 
 @app.route("/predict" , methods=['POST'])
 def predict():
-    age = int(request.form.get('age'))
-    avghrs = int(request.form.get('avghours'))
-    result = mul(age , avghrs)
-    return render_template('home.html', age=age,avghrs=avghrs , result= result)
+    data = request.form.to_dict()
+    print("Posted data : \n",data)
+    return render_template('home.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
