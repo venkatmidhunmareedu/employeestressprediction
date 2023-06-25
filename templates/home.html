@@ -4,16 +4,53 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Employee Stress Prediction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
+<!-- Accuracy(RF): 0.88375
+Accuracy(LR): 0.8853125
+Accuracy(DT): 0.815625
+Accuracy(SVM): 0.8296875
+Accuracy(KNN): 0.8071875
+Accuracy(NN): 0.8296875 -->
+
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3" href="/">Employee Stress Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <form action="/reset" method="post">
+                        <button class="btn btn-primary">Reset</button>
+                    </form>
+                </ul>
+            </div>
+    </nav><br><br><br>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
     <div class="container justify-content-center col-lg-6">
         <form class="row  g-3 m-5" method="post" action="/predict">
             <h1>Employee Stress Prediction</h1>
-            <h1>{% if result[0]==1 %} Under Stress {% elif result[0]==0 %} Not Under Stress {% endif %}</h1>
+            {% if result[0]==1 %} <p class="text-danger fs-4 fw-bold">Under Stress </p> {% elif result[0]==0 %} <p
+                class="text-success fs-4 fw-bold">Not Under Stress</p> {% else
+            %} <p class="text-dark ">Result will be displayed here once you submit </p>{% endif %}
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Age(in years)</label>
                 <input type="number" class="form-control" id="inputEmail4" name="Age" required autofocus>
@@ -251,6 +288,19 @@
                 <label for="inputCity" class="form-label">Years With Current Manager</label>
                 <input type="number" class="form-control" id="YearsSincePromotion" name="YearsWithCurrManager" required>
             </div>
+            <div class="form-floating col-md-12">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="method"
+                    required>
+                    <option value="LR">Logistic Regression(Acc=0.8853125)</option>
+                    <option value="DT">Decision Tree(Acc=0.815625)</option>
+                    <option value="KNN">K-Nearest Neighbours(Acc=0.8071875)</option>
+                    <option value="MLPC">Neural Network(Acc=0.8296875)</option>
+                    <option value="RF">Random Forest(Acc=0.88375)</option>
+                    <option value="KNN">Support Vector Machine(Acc=0.8296875)</option>
+
+                </select>
+                <label for="floatingSelect">Select an Algorithm</label>
+            </div>
             <div class="text-center"><br>
                 <button class="btn btn-primary btn-lg" type="submit">Predict</button>
             </div>
@@ -265,6 +315,7 @@
 
 
 <!-- 
+
 {'Age': '1',
 'AvgDailyHours': '1',
 'Department': '0',
@@ -292,4 +343,13 @@
 'WorkLoadLevel': '0',
 'YearsAtCompany': '1',
 'YearsSinceLastPromotion': '1',
-'YearsWithCurrManager': '1'} -->
+'YearsWithCurrManager': '1'} 
+Accuracy(RF): 0.88375
+Accuracy(LR): 0.8853125
+Accuracy(DT): 0.815625
+Accuracy(SVM): 0.8296875
+Accuracy(KNN): 0.8071875
+Accuracy(NN): 0.8296875
+
+
+-->
