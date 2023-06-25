@@ -1,6 +1,7 @@
 from flask import Flask , render_template , redirect , url_for , request , make_response , flash
 app  = Flask(__name__)
 from model import model
+app=Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 result = []
