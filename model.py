@@ -3,7 +3,7 @@ import numpy as np
 LR_model = pickle.load(open('pickel_files/LR.pkl', 'rb'))
 
 
-def model(data, method):
+def model(data):
     data = np.array(list(data.values()))
     data = data.astype(float)
     print(data)
