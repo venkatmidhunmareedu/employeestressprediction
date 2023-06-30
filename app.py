@@ -15,11 +15,7 @@ def home():
 def predict():
     global result
     data = request.form.to_dict()
-    method = data.pop('method' , None)
-    result = model(data,method)
-    print(method)
-    print(data)
-    print(result)
+    result = model(data)
     flash("Predicted Successfully")
     return redirect("/")
 
